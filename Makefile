@@ -1,10 +1,12 @@
 
-CXXFLAGS=`wx-config --cxxflags`
+CXXFLAGS=$(shell wx-config --cxxflags) -arch i386
+LIBS=$(shell wx-config --libs)
+
 
 all: whitesheep
 
 whitesheep: src/app.o src/taskbar.o
-	$(CXX) src/app.o src/taskbar.o `wx-config --libs` -o whitesheep
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LIBS)
 
 clean:
 	-rm src/*.o whitesheep
