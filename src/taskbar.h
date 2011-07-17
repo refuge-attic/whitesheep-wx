@@ -20,7 +20,21 @@ public:
     void OnMenuExit(wxCommandEvent&);
     void OnMenuAbout(wxCommandEvent&);
 
+    void OnMenuStartStop(wxCommandEvent&);
+    void OnMenuOpenURI(wxCommandEvent&);
+
     virtual wxMenu *CreatePopupMenu();
 
 DECLARE_EVENT_TABLE()
+
+private:
+    void StartRefuge(void);
+    void StopRefuge(void);
+
+protected:
+    bool isStarted;
+    wxString* uri;
+
+    wxMenuItem* startStopItem;
+    wxMenuItem* openURIItem;
 };
