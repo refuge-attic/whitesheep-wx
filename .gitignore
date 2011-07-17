@@ -1,2 +1,3 @@
 *.o
 whitesheep
+.DS_Store
